@@ -1,3 +1,2 @@
-=======
-# A-Vite-Mindset-Way
+# A Vite mindset way
 The right mindset for building an application using pure TDD with Vite, React, Tailwind, and other tools
