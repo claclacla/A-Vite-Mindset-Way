@@ -10,6 +10,11 @@
         "forceConsistentCasingInFileNames": true,
         "outDir": "./dist",
         "baseUrl": "./",
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        },
         "resolveJsonModule": true,
         "types": [
             "jest",
@@ -19,8 +24,9 @@
     },
     "include": [
         "src/**/*",
-        "tests/**/*"
-, "src/components/Button/index.test.tsx"    ],
+        "tests/**/*",
+        "src/components/Button/index.test.tsx"
+    ],
     "exclude": [
         "node_modules",
         "dist"
