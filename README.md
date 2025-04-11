@@ -28,6 +28,7 @@ Open [http://localhost:5173/](http://localhost:5173) with your browser to see th
 - Vite
 - React
 - Tailwind
+- Shadcn/ui
 - Unit(Jest + React testing library) testing
 
 ## Testing
