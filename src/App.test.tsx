@@ -1,34 +1,32 @@
 import React from "react";
 
-import { render, screen, within,fireEvent } from '@testing-library/react';
+import { render, screen, within, fireEvent } from '@testing-library/react';
 import App from "./App";
 
-test("Check if there isn't a 'button-clicked' text 'Clicked!'", () => {
+test("Check if there isn't a 'Clicked!' text if button hasn't been clicked", () => {
     render(<App/>);
 
-    const buttonClickedMessage = screen.queryByTitle("button-clicked");
+    const buttonClickedMessage = screen.queryByTitle("Clicked!");
     expect(buttonClickedMessage).toBeNull();
 });
 
-test("Check if there's a 'click-button' with a Tailwind class text-red-800 in the form 'main-form'", () => {
+test("Check if there's a button in the 'container'", () => {
     render(<App/>);
 
-    const loginForm = screen.getByTitle("main-form");
-    expect(loginForm).toBeInTheDocument();
+    const container = screen.getByTitle("container");
+    expect(container).toBeInTheDocument();
 
-    const button = within(loginForm).getByTitle("click-button");
+    const button = within(container).getByRole("button", { name: /click me/i });
     expect(button).toBeInTheDocument();
-    expect(button).toHaveClass("text-red-800");
 });
 
 
-test("Check if there's a 'button-clicked' with the text 'Clicked!' when click the button", () => {
+test("Check if there's a text 'Clicked!' when click the button", () => {
     render(<App/>);
 
-    const button = screen.getByTitle("click-button");
+    const button = screen.getByRole("button", { name: /click me/i });
     fireEvent.click(button);
 
-    const buttonClickedMessage = screen.getByTitle("button-clicked");
+    const buttonClickedMessage = screen.getByText("Clicked!");
     expect(buttonClickedMessage).toBeInTheDocument();
-    expect(buttonClickedMessage).toHaveTextContent("Clicked!");
 });

@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
-import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+
+import ComponentRenderer from './components/ComponentRenderer';
 
 function App() {
     const [buttonClicked, setButtonClicked] = useState(false);
 
     return (
-        <div title="main-form">
-            <Button title='click-button' className="text-red-800" onClick={() => setButtonClicked(true)}>
-                Click Me
-            </Button>
-
-            {buttonClicked && <div title="button-clicked">Clicked!</div>}
+        <div title="container">
+            {<ComponentRenderer type="button" props={{ label: "Click me", onClick: () => setButtonClicked(true) }} />}
+            {buttonClicked && <div>Clicked!</div>}
         </div>
     );
 }
 
-export default App
+export default App;
